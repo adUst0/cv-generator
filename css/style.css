@@ -1,0 +1,43 @@
+body {
+    padding-top: 70px;
+}
+
+#login-div {
+    width: 60%;
+}
+
+#logo-img {
+    height: 50px;
+}
+
+#site-header {
+    padding: 20px;
+    height: 300px;
+    color: white;
+    background: url(../img/bg.jpg) repeat center 95%;
+    box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
+}
+
+#main-section {
+    width: 80%;
+    margin-top: 20px;
+}
+
+#site-footer {
+    margin-bottom: 0;
+}
+
+#site-footer div {
+    padding: 15px
+}
+
+@media only screen and (max-width: 767.98px) {
+    body {
+        padding-top: 246px;
+    }
+
+    #login-div {
+        width: 90%;
+    }
+}
+
