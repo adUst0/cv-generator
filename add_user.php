@@ -1,15 +1,11 @@
 <?php
 
 include("Db.php");
-
-$db_servername = "localhost";
-$db_name = "cv_generator";
-$db_username = "root";
-$db_password = "";
-
-$db_conn = new Db($db_servername, $db_name, $db_username, $db_password);
+include("config.php");
 
 if (isset($_POST['register'])) {
+    $db_conn = new Db($db_servername, $db_name, $db_username, $db_password);
+
     $name = $_POST['name'];
     $email = $_POST['email'];
     $password = $_POST['password'];
@@ -21,11 +17,10 @@ if (isset($_POST['register'])) {
         exit;
     }
 
-    $stmt = $db_conn->query("INSERT INTO users(name, email, password) VALUE (?, ?, ?)", [$name, $email, $password]);
+    $stmt = $db_conn->query("INSERT INTO users(name, email, password) VALUE(?, ?, ?)", [$name, $email, $password]);
 
-    if ($stmt->rowCount()) {
+    if ($stmt->rowCount() > 0) {
         header("location:login.php?reg_c=t");
-        echo "<script>alert('Registration succesful.')</script>";
         exit;
     }
 

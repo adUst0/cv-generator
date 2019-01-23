@@ -1,3 +1,7 @@
+<?php 
+    session_start();
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -35,16 +39,19 @@
                 if (isset($_GET['reg_c'])) {
                     echo "<div class=\"alert alert-success\" role=\"alert\">Registration successful!</div>"; 
                 }
+                if (isset($_GET['log_nc'])) {
+                    echo "<div class=\"alert alert-danger\" role=\"alert\">Incorrect email or password!</div>"; 
+                }
             ?>
-            <form class="col-md-8 col-md-offset-2">
+            <form class="col-md-8 col-md-offset-2" method="post" action="login.php">
                 <div class="form-group">Email:
-                    <input class="form-control" placeholder="Email" type="email" name="">
+                    <input class="form-control" placeholder="Email" type="email" name="email">
                 </div>
                 <div class="form-group">Password:
-                    <input class="form-control" placeholder="Password" type="password" name="">
+                    <input class="form-control" placeholder="Password" type="password" name="password">
                 </div>
                 <div class="form-group">
-                    <input class="btn btn-success btn-block" type="submit" name="">
+                    <button type="submit" name="login" class="btn btn-success btn-block">Login</button>
                 </div>
             </form>
         </div>
@@ -58,3 +65,27 @@
 
 </body>
 </html>
+
+<?php
+include("Db.php");
+include("config.php");
+
+if (isset($_POST['login'])) {
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+    $db_conn = new Db($db_servername, $db_name, $db_username, $db_password);
+
+    $stmt = $db_conn->query("SELECT * FROM users WHERE email=? AND password=?", 
+        [$email, $password]);
+
+    if ($stmt->rowCount() == 1) {
+        header("location:member_page.php");
+        exit;
+    }
+    else {
+        header("location:login.php?log_nc=t");
+        exit;
+    }
+}
+?>
