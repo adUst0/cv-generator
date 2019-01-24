@@ -1,3 +1,7 @@
+<?php 
+session_start();
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -12,14 +16,19 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse  navbar-static-top">
         <div class="container-fluid">
             <a href="#" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="index.php">Home</a></li>
-                <li><a href="register.php">Register</a></li>
-                <li><a href="login.php">Login</a></li>
-                <li><a href="#">Member area</a></li>
+                <?php if (!isset($_SESSION['email'])) {
+                    echo '<li><a href="register.php">Register</a></li>';
+                    echo '<li><a href="login.php">Login</a></li>';
+                }?>
+                <li><a href="members.php">Member area</a></li>
+                <?php if (isset($_SESSION['email'])) {
+                    echo '<li><a href="php/logout.php">Logout</a></li>';
+                }?>
             </ul>
         </div>
     </nav>

@@ -16,14 +16,14 @@
 </head>
 <body>
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse  navbar-static-top">
         <div class="container-fluid">
             <a href="#" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.php">Home</a></li>
                 <li><a href="register.php">Register</a></li>
                 <li class="active"><a href="login.php">Login</a></li>
-                <li><a href="#">Member area</a></li>
+                <li><a href="members.php">Member area</a></li>
             </ul>
         </div>
     </nav>
@@ -67,8 +67,8 @@
 </html>
 
 <?php
-include("Db.php");
-include("config.php");
+include("php/Db.php");
+include("php/config.php");
 
 if (isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -80,7 +80,10 @@ if (isset($_POST['login'])) {
         [$email, $password]);
 
     if ($stmt->rowCount() == 1) {
-        header("location:member_page.php");
+        header("location:members.php");
+        $_SESSION['email'] = $email;
+        $_SESSION['name'] = $stmt->fetch()['name'];
+
         exit;
     }
     else {
