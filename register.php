@@ -36,7 +36,7 @@
                     echo "<div class=\"alert alert-danger\" role=\"alert\">User with this email already exists!</div>"; 
                 }
             ?>
-            <form method="post" class="col-md-8 col-md-offset-2" action="./add_user.php">
+            <form method="post" class="col-md-8 col-md-offset-2" action="./php/add_user.php">
                 <div class="form-group">Name:
                     <input class="form-control" placeholder="Full name" type="text" 
                     name="name" minlength="3" maxlength="100" required>

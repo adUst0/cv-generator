@@ -13,14 +13,14 @@ if (isset($_POST['register'])) {
     // check if user exists
     $stmt = $db_conn->query("SELECT * FROM users WHERE email=?", [$email]);
     if ($stmt->rowCount() != 0) {
-        header("location:register.php?user_exists=t");
+        header("location:../register.php?user_exists=t");
         exit;
     }
 
     $stmt = $db_conn->query("INSERT INTO users(name, email, password) VALUE(?, ?, ?)", [$name, $email, $password]);
 
     if ($stmt->rowCount() > 0) {
-        header("location:login.php?reg_c=t");
+        header("location:../login.php?reg_c=t");
         exit;
     }
 

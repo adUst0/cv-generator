@@ -81,8 +81,11 @@ if (isset($_POST['login'])) {
 
     if ($stmt->rowCount() == 1) {
         header("location:members.php");
+        $row = $stmt->fetch();
+
         $_SESSION['email'] = $email;
-        $_SESSION['name'] = $stmt->fetch()['name'];
+        $_SESSION['name'] = $row['name'];
+        $_SESSION['user_id'] = $row['user_id'];
 
         exit;
     }
