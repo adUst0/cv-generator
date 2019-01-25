@@ -14,12 +14,13 @@
 
     <nav class="navbar navbar-inverse  navbar-static-top">
         <div class="container-fluid">
-            <a href="#" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
+            <a href="index.php" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.php">Home</a></li>
                 <li class="active"><a href="register.php">Register</a></li>
                 <li><a href="login.php">Login</a></li>
-                <li><a href="members.php">Member area</a></li>
+                <li><a href="members.php">My Profile</a></li>
+                <li><a href="my_cv.php">My CV</a></li>
             </ul>
         </div>
     </nav>

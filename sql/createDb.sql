@@ -52,13 +52,9 @@ CREATE TABLE `cv_generator`.`education` (
 
 CREATE TABLE `cv_generator`.`languages` (
     id INT(10) NOT NULL AUTO_INCREMENT,
-    user_id INT(10) NOT NULL UNIQUE,
-    lang1 VARCHAR(50) NOT NULL,
-    level1 CHAR(2) NOT NULL,
-    lang2 VARCHAR(50) NOT NULL,
-    level2 CHAR(2) NOT NULL,
-    lang3 VARCHAR(50) NOT NULL,
-    level3 CHAR(2) NOT NULL,
+    user_id INT(10) NOT NULL,
+    lang VARCHAR(50) NOT NULL,
+    level CHAR(2) NOT NULL,
     PRIMARY KEY(id),
     FOREIGN KEY(user_id) REFERENCES Users(user_id)
     ON DELETE CASCADE
@@ -75,4 +71,14 @@ CREATE TABLE `cv_generator`.`skills` (
     ON UPDATE CASCADE
 );
 
--- INSERT INTO `user_data` (`user_id`, `location`, `email`, `sex`, `date_of_birth`, `nationality`, `driving_license`, `mother_tongue`) VALUES ('1', 'Plovdiv, Bulgaria', 'drug_email@gmail.com', 'male', '1996-01-02', 'Bulgarian', 'AM, B', 'Bulgarian');
+INSERT INTO `users` (`user_id`, `name`, `email`, `password`) VALUES (NULL, 'Georgi Georgiev', 'gosheto@abv.bg', '123456789');
+
+INSERT INTO `user_data` (`id`, `user_id`, `location`, `email`, `sex`, `date_of_birth`, `nationality`, `driving_license`, `mother_tongue`) VALUES (NULL, '1', 'Plovdiv, Bulgaria', 'drug_email@gmail.com', 'male', '1996-06-02', 'Bulgarian', 'AM, B', 'Bulgarian');
+
+INSERT INTO `work_experience` (`id`, `user_id`, `job_title`, `company`, `from_date`, `to_date`) VALUES (NULL, '1', 'Embedded Software Eng', 'Visteon', '2017-09-04', 'now'), (NULL, '1', 'Teleagent', 'Telus International', '2016-09-01', '2017-09-01');
+
+INSERT INTO `education` (`id`, `user_id`, `title`, `institution`, `from_date`, `to_date`) VALUES (NULL, '1', 'High school', 'Spanish high school', '2010-09-15', '2015-05-30'), (NULL, '1', 'Computer Science', 'FMI, Sofia University', '2015-09-15', '2019-09-01');
+
+INSERT INTO `languages` (`id`, `user_id`, `lang`, `level`) VALUES (NULL, '1', 'English', 'C2'), (NULL, '1', 'Spanish', 'C1'), (NULL, '1', 'German', 'A1');
+
+INSERT INTO `skills` (`id`, `user_id`, `title`) VALUES (NULL, '1', 'C++'), (NULL, '1', 'Java'), (NULL, '1', 'OOP'), (NULL, '1', 'Algorithms'), (NULL, '1', 'Scrum'), (NULL, '1', 'Git'), (NULL, '1', 'Scala');

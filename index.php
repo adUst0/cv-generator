@@ -18,14 +18,15 @@ session_start();
 
     <nav class="navbar navbar-inverse  navbar-static-top">
         <div class="container-fluid">
-            <a href="#" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
+            <a href="index.php" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
             <ul class="nav navbar-nav navbar-right">
                 <li class="active"><a href="index.php">Home</a></li>
                 <?php if (!isset($_SESSION['email'])) {
                     echo '<li><a href="register.php">Register</a></li>';
                     echo '<li><a href="login.php">Login</a></li>';
                 }?>
-                <li><a href="members.php">Member area</a></li>
+                <li><a href="members.php">My Profile</a></li>
+                <li><a href="my_cv.php">My CV</a></li>
                 <?php if (isset($_SESSION['email'])) {
                     echo '<li><a href="php/logout.php">Logout</a></li>';
                 }?>
@@ -37,50 +38,32 @@ session_start();
         <h1>CV Generator | Create your perfect CV</h1>
     </header>
 
-    <section class="container-fluid center-block" id="main-section">
-        <h1>Hello there</h1>
-        <p>Welcome to free CV generation</p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+    <section class="container-fluid center-block text-center" id="main-section">
+        <div class="container">
+            <h1>Hello there</h1>
+            <p>Welcome to free CV generation</p>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="page-header">
+                        <h3>Login</h3>
+                    </div>
+                    <a href="login.php" class="thumbnail"><img src="img/login.png" class="img-fluid"></a>
+                </div>
+                <div class="col-md-4">
+                    <div class="page-header">
+                        <h3>Register</h3>
+                    </div>
+                    <a href="register.php" class="thumbnail"><img src="img/register.png" class="img-fluid"></a>
+                </div>
+                <div class="col-md-4">
+                    <div class="page-header">
+                        <h3>Create CV</h3>
+                    </div>
+                    <a href="my_cv.php" class="thumbnail"><img src="img/logo.png" class="img-fluid"></a>
+                </div>
+            </div>
+        </div>
 
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
     </section>
 
     <footer id="site-footer" class="navbar navbar-default">

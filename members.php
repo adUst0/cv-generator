@@ -18,7 +18,7 @@ $user_data = $data_query->fetch();
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>CV Generator | Member area</title>
+    <title>CV Generator | My Profile</title>
 
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <script src="js/jquery.min.js"></script>
@@ -29,10 +29,11 @@ $user_data = $data_query->fetch();
 <body>
     <nav class="navbar navbar-inverse navbar-static-top">
         <div class="container-fluid">
-            <a href="#" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
+            <a href="index.php" class="navbar-left"><img src="img/logo2.png" id="logo-img"></a>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="index.php">Home</a></li>
-                <li class="active"><a href="members.php">Member area</a></li>
+                <li class="active"><a href="members.php">My Profile</a></li>
+                <li><a href="my_cv.php">My CV</a></li>
                 <li><a href="php/logout.php">Logout</a></li>
             </ul>
         </div>
@@ -43,7 +44,7 @@ $user_data = $data_query->fetch();
     </header>
 
     <section class="container-fluid center-block text-center" id="main-section">
-        <h1>Member's area</h1>
+        <h1>My Profile</h1>
         <p> Welcome, <?php echo $_SESSION['name'];?>!</p>
 
         <div class="container">
@@ -54,13 +55,13 @@ $user_data = $data_query->fetch();
                     </div>
                     <form class="col-md-8 col-md-offset-2" action="./php/update_user_data.php" method="post">
                         <div class="form-group">Location:
-                            <input class="form-control" type="text" id="location" name="location" placeholder="Sofia, Bulgaria" value="<?php echo $user_data['location']; ?>">
+                            <input required class="form-control" type="text" id="location" name="location" placeholder="Sofia, Bulgaria" value="<?php echo $user_data['location']; ?>">
                         </div>
                         <div class="form-group">Email:
                             <input class="form-control" type="email" id="email" name="email" placeholder="Leave empty to use the login email" value="<?php echo $user_data['email']; ?>">
                         </div>
                         <div class="form-group">Sex:
-                            <select class="form-control" id="sex" name="sex">
+                            <select required class="form-control" id="sex" name="sex">
                                 <option value="male" <?php if ($user_data['sex'] == 'male') echo "selected" ?>>Male</option>
                                 <option value="female" <?php if ($user_data['sex'] == 'female') echo "selected" ?>>Female</option>
                                 <option value="other" <?php if ($user_data['sex'] == 'other') echo "selected" ?>>Other</option>
@@ -77,7 +78,7 @@ $user_data = $data_query->fetch();
                             <input class="form-control" type="text" id="driving_license" name="driving_license" placeholder="AM, B" value="<?php echo $user_data['driving_license']; ?>">
                         </div>
                         <div class="form-group">Mother tongue:
-                            <input class="form-control" type="text" id="mother_tongue" name="mother_tongue" placeholder="Bulgarian" value="<?php echo $user_data['mother_tongue']; ?>">
+                            <input required class="form-control" type="text" id="mother_tongue" name="mother_tongue" placeholder="Bulgarian" value="<?php echo $user_data['mother_tongue']; ?>">
                         </div>
                         <div class="form-group">
                             <button type="submit" name="update_f1" class="btn btn-success btn-block">Update</button>
