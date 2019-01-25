@@ -1,6 +1,6 @@
 CREATE DATABASE cv_generator;
 
-CREATE TABLE `cv_generator`.`Users` ( 
+CREATE TABLE `Users` ( 
     user_id INT(10) NOT NULL AUTO_INCREMENT, 
     name VARCHAR(100) NOT NULL, 
     email VARCHAR(100) NOT NULL UNIQUE, 
@@ -8,7 +8,7 @@ CREATE TABLE `cv_generator`.`Users` (
     PRIMARY KEY (user_id)
 );
 
-CREATE TABLE `cv_generator`.`user_data` (
+CREATE TABLE `user_data` (
     id INT(10) NOT NULL AUTO_INCREMENT,
     user_id INT(10) NOT NULL UNIQUE,
     location VARCHAR(100) NOT NULL,
@@ -24,7 +24,7 @@ CREATE TABLE `cv_generator`.`user_data` (
     ON UPDATE CASCADE
 );
 
-CREATE TABLE `cv_generator`.`work_experience` (
+CREATE TABLE `work_experience` (
     id INT(10) NOT NULL AUTO_INCREMENT,
     user_id INT(10) NOT NULL,
     job_title VARCHAR(50) NOT NULL,
@@ -37,7 +37,7 @@ CREATE TABLE `cv_generator`.`work_experience` (
     ON UPDATE CASCADE
 );
 
-CREATE TABLE `cv_generator`.`education` (
+CREATE TABLE `education` (
     id INT(10) NOT NULL AUTO_INCREMENT,
     user_id INT(10) NOT NULL,
     title VARCHAR(50) NOT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE `cv_generator`.`education` (
     ON UPDATE CASCADE
 );
 
-CREATE TABLE `cv_generator`.`languages` (
+CREATE TABLE `languages` (
     id INT(10) NOT NULL AUTO_INCREMENT,
     user_id INT(10) NOT NULL,
     lang VARCHAR(50) NOT NULL,
@@ -61,7 +61,7 @@ CREATE TABLE `cv_generator`.`languages` (
     ON UPDATE CASCADE
 );
 
-CREATE TABLE `cv_generator`.`skills` (
+CREATE TABLE `skills` (
     id INT(10) NOT NULL AUTO_INCREMENT,
     user_id INT(10) NOT NULL,
     title VARCHAR(200) NOT NULL,
